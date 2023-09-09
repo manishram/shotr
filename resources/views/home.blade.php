@@ -48,7 +48,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="2">No URLs available</td>
+                                        <td colspan="3" class="text-center">No URLs available</td>
                                     </tr>
                                 @endforelse
                             </tbody>
