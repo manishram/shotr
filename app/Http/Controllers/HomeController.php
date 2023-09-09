@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $shortenedUrls = [
+            (object) [
+                "original_url" => "https://google.com",
+                "shortened_url" => "shortlnk.cc/abcd"
+            ],
+            // Add more objects to your array as needed
+        ];
+        return view('home', ["shortenedUrls" => $shortenedUrls]);
     }
 }
