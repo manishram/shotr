@@ -38,7 +38,7 @@
                             <tbody>
                                 @forelse ($latestUrls as $latestUrl)
                                     <tr>
-                                        <td title={{$latestUrl->destination}}>{{ $latestUrl->destination }}</td>
+                                        <td title={{$latestUrl->destination}}>{{ Str::limit($latestUrl->destination, 50) }}</td>
                                         <td>
                                             <a href="{{ route('url.redirect', ['slug' => $latestUrl->slug]) }}" target="_blank">
                                                 {{ route('url.redirect', ['slug' => $latestUrl->slug]) }}
