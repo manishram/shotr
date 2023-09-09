@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UrlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::post('/store', [UrlController::class, 'store'])->name('store.url');
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/{slug}', [UrlController::class, 'redirect'])->name('url.redirect');

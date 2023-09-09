@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\Url;
 class HomeController extends Controller
 {
     /**
@@ -21,15 +20,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function home()
     {
-        $shortenedUrls = [
-            (object) [
-                "original_url" => "https://google.com",
-                "shortened_url" => "shortlnk.cc/abcd"
-            ],
-            // Add more objects to your array as needed
-        ];
-        return view('home', ["shortenedUrls" => $shortenedUrls]);
+        $latestUrls = Url::latest()->take(5)->get(); // Get the latest 5 URLs
+        return view('home', ["latestUrls" => $latestUrls]);
     }
 }
