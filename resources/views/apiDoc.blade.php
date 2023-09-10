@@ -7,7 +7,7 @@
     <p>Shortens a URL and returns the shortened link.</p>
 
     <h4>Endpoint</h4>
-    <pre><code class="bg-white"> POST /api/shorten-url</code></pre>
+    <pre><code class="bg-white"> POST /api/v1/shorten-url</code></pre>
 
     <h4>Request Parameters</h4>
     <table class="table table-bordered">
@@ -28,7 +28,7 @@
     </table>
 
     <h4>Example Request</h4>
-    <pre><code class="bg-white"> POST /api/shorten-url</code></pre>
+    <pre><code class="bg-white"> POST /api/v1/shorten-url</code></pre>
     <pre class="bg-white"><code>
     {
         "destination": "https://internet.com/a-very-long-url-here"
