@@ -5,7 +5,6 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <!-- Input field and form -->
             <form action="{{ route('store.url') }}" method="POST">
                 @csrf
                 <div class="input-group mb-3">
@@ -18,8 +17,6 @@
             </form>
         </div>
     </div>
-
-    <!-- Center the table in a new row -->
 
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">

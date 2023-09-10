@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ms-auto">
                         
                         <li class="nav-tem">
-                            <a class="nav-link text-white" href="{{ route('apiDoc') }}">{{ __('API') }}</a>
+                            <a class="nav-link text-white" href="{{ route('api-doc') }}">{{ __('API') }}</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UrlController;
+use App\Http\Controllers\UrlApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/v1/shorten-url', [UrlController::class, 'shortenUrlApi'])->name('shorten-url');
+Route::post('/v1/shorten-url', [UrlApiController::class, 'shortenUrlApi'])->name('shorten-url');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {return $request->user();});

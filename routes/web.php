@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return view('index');
-});
-Route::get('/api', function(){
-    return view('apiDoc');
-})->name('apiDoc');
+Route::get('/', function(){return view('index');});
+
+Route::get('/api-doc', function(){return view('api-doc');})->name('api-doc');
+
 Route::get('/home', [HomeController::class, 'getUrls'])->name('home');
+
 Route::get('/delete-url/{id}', [UrlController::class, 'deleteUrl'])->name('url.delete');
+
 Route::post('/store', [UrlController::class, 'store'])->name('store.url');
 
 Auth::routes();
