@@ -32,7 +32,7 @@ git clone https://github.com/manishram/short.git
 Navigate to the project directory:
 
 ```
-cd short
+cd shotr
 ```
 Install PHP dependencies:
 
