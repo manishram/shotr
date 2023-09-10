@@ -19,6 +19,50 @@
     </div>
 
     <!-- Center the table in a new row -->
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">My URLs</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Destination URL</th>
+                                    <th>Shortened URL</th>
+                                    <th>Views</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($myUrls as $myUrl)
+                                    <tr>
+                                        <td title={{$myUrl->destination}}>{{ Str::limit($myUrl->destination, 50) }}</td>
+                                        <td>
+                                            <a href="{{ route('url.redirect', ['slug' => $myUrl->slug]) }}" target="_blank">
+                                                {{ route('url.redirect', ['slug' => $myUrl->slug]) }}
+                                            </a>
+                                        </td>
+                                        <td>{{ $myUrl->views }}</td>
+                                        <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="3" class="text-center">No URLs created by you!!</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
             <div class="card">

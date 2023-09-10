@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->unsignedInteger('views')->default(0);
             $table->timestamps();
-            $table->string('created_by')->default('NULL');
+            $table->integer('created_by')->default(0);
         });
     }
 

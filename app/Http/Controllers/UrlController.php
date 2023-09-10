@@ -52,7 +52,6 @@ class UrlController extends Controller
         $shortenedUrl = new Url([
             'destination' => $request->input('destination'),
             'slug' => $slug,
-            'created_by' => 'API'
         ]);
         $shortenedUrl->save();
 

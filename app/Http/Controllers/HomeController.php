@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Url;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,10 @@ class HomeController extends Controller
     public function getUrls()
     {
         $latestUrls = Url::latest()->take(5)->get();
-        return view('home', ["latestUrls" => $latestUrls]);
+        
+        $userId = Auth::user()->id;
+        $myUrls = Url::where('created_by', $userId)->get();
+
+        return view('home', ["latestUrls" => $latestUrls, "myUrls" => $myUrls]);
     }
 }
