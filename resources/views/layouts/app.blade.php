@@ -38,6 +38,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        
+                        <li class="nav-tem">
+                            <a class="nav-link text-white" href="{{ route('apiDoc') }}">{{ __('API') }}</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -70,9 +74,6 @@
                                 </div>
                             </li>
                         @endguest
-                        <li class="nav-tem">
-                            <a class="nav-link text-white" href="{{ route('apiDoc') }}">{{ __('API') }}</a>
-                        </li>
                     </ul>
                 </div>
             </div>
