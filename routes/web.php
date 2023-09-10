@@ -26,6 +26,6 @@ Route::get('/delete-url/{id}', [UrlController::class, 'deleteUrl'])->name('url.d
 
 Route::post('/store', [UrlController::class, 'store'])->name('store.url');
 
-Auth::routes();
-
 Route::get('/{slug}', [UrlController::class, 'redirect'])->name('url.redirect');
+
+Auth::routes();

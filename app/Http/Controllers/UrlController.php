@@ -46,32 +46,4 @@ class UrlController extends Controller
 
         return redirect()->back()->with('success', 'URL deleted successfully');
     }
-
-    public function shortenUrlApi(Request $request)
-    {
-        // Validate the request data
-        $this->validate($request, [
-            'destination' => 'required|url',
-        ]);
-
-        // Create a new shortened URL
-        $slug = Str::random(5);
-        $shortenedUrl = new Url([
-            'destination' => $request->input('destination'),
-            'slug' => $slug,
-        ]);
-        $shortenedUrl->save();
-
-        // Build the response JSON
-        $response = [
-            'destination' => $shortenedUrl->destination,
-            'slug' => $shortenedUrl->slug,
-            'updated_at' => $shortenedUrl->updated_at,
-            'created_at' => $shortenedUrl->created_at,
-            'id' => $shortenedUrl->id,
-            'shortened_url' => route('url.redirect', ['slug' => $shortenedUrl->slug])
-        ];
-
-        return response()->json($response, 200);
-    }
 }
