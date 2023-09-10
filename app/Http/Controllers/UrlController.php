@@ -40,6 +40,13 @@ class UrlController extends Controller
         // Redirect to the original URL
         return Redirect::to($url->destination);
     }
+    public function deleteUrl($id){
+        $user = Auth::user()->id;
+        Url::where(['id'=>$id, 'created_by'=> $user])->delete();
+
+        return redirect()->back()->with('success', 'URL deleted successfully');
+    }
+
     public function shortenUrlApi(Request $request)
     {
         // Validate the request data

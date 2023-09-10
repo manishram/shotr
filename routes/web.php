@@ -23,6 +23,7 @@ Route::get('/api', function(){
     return view('apiDoc');
 })->name('apiDoc');
 Route::get('/home', [HomeController::class, 'getUrls'])->name('home');
+Route::get('/delete-url/{id}', [UrlController::class, 'deleteUrl'])->name('url.delete');
 Route::post('/store', [UrlController::class, 'store'])->name('store.url');
 
 Auth::routes();

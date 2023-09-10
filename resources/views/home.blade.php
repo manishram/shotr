@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -34,7 +35,7 @@
                                     <th>Destination URL</th>
                                     <th>Shortened URL</th>
                                     <th>Views</th>
-                                    <th>Action</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,11 +48,19 @@
                                             </a>
                                         </td>
                                         <td>{{ $myUrl->views }}</td>
-                                        <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+                                        <td class="text-center">
+                                            <a class="" title="Delete" href="{{ route('url.delete', ['id' => $myUrl->id]) }}">
+                                                <i class="fas fa-trash fa-lg text-danger"></i>
+                                            </a>
+                                            <span class="text-muted mx-1">|</span>
+    <a class="" title="Copy to Clipboard" href="javascript:void(0);" onclick="copyToClipboard('{{ route('url.redirect', ['slug' => $myUrl->slug]) }}')">
+        <i class="fas fa-copy fa-lg text-primary"></i>
+    </a>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center">No URLs created by you!!</td>
+                                        <td colspan="4" class="text-muted text-center">No URLs created by you!</td>
                                     </tr>
                                 @endforelse
                             </tbody>
@@ -76,7 +85,7 @@
                                 <tr>
                                     <th>Destination URL</th>
                                     <th>Shortened URL</th>
-                                    <th>Views</th>
+                                    <th class="text-center">Views</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,7 +97,7 @@
                                                 {{ route('url.redirect', ['slug' => $latestUrl->slug]) }}
                                             </a>
                                         </td>
-                                        <td>{{ $latestUrl->views }}</td>
+                                        <td class="text-center">{{ $latestUrl->views }}</td>
                                     </tr>
                                 @empty
                                     <tr>
