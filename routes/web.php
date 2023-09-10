@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UrlController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +16,14 @@ use App\Http\Controllers\UrlController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function(){
+    return view('index');
+});
+Route::get('/api', function(){
+    return view('apiDoc');
+})->name('apiDoc');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::post('/store', [UrlController::class, 'store'])->name('store.url');
-
-Route::get('/', function () {
-    return view('auth.login');
-});
 
 Auth::routes();
 

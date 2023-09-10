@@ -70,6 +70,9 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-tem">
+                            <a class="nav-link text-white" href="{{ route('apiDoc') }}">{{ __('API') }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
