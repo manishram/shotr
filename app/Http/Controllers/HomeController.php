@@ -20,9 +20,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
+    public function getUrls()
     {
-        $latestUrls = Url::latest()->take(5)->get(); // Get the latest 5 URLs
+        $latestUrls = Url::latest()->take(5)->get();
         return view('home', ["latestUrls" => $latestUrls]);
     }
 }

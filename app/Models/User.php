@@ -41,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function url(){
+        return $this->hasMany('App\Model\Url', 'created_by');
+    }
+    
 }

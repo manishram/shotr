@@ -10,8 +10,11 @@ class Url extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'destination', 'slug', 'views'
+        'destination', 'slug', 'views', 'created_by'
     ];
+    public function user(){
+        $this->belongsTo('App\Model\User', 'id');
+    }
     public function getUrlData()
     {
         return config('app.url') . '/' . $this->slug;

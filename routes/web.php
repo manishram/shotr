@@ -22,7 +22,7 @@ Route::get('/', function(){
 Route::get('/api', function(){
     return view('apiDoc');
 })->name('apiDoc');
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/home', [HomeController::class, 'getUrls'])->name('home');
 Route::post('/store', [UrlController::class, 'store'])->name('store.url');
 
 Auth::routes();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Url;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
@@ -18,6 +19,7 @@ class UrlController extends Controller
         $url = new Url();
         $url->destination = $request->destination;
         $url->slug = Str::random(5);
+        $url->created_by = Auth::user()->id;
         $url->save();
     
         return redirect()->back()->with('success', 'URL shortened successfully');
@@ -50,6 +52,7 @@ class UrlController extends Controller
         $shortenedUrl = new Url([
             'destination' => $request->input('destination'),
             'slug' => $slug,
+            'created_by' => 'API'
         ]);
         $shortenedUrl->save();
 
@@ -60,7 +63,7 @@ class UrlController extends Controller
             'updated_at' => $shortenedUrl->updated_at,
             'created_at' => $shortenedUrl->created_at,
             'id' => $shortenedUrl->id,
-            'shortened_url' => route('url.redirect', ['slug' => $shortenedUrl->slug]),
+            'shortened_url' => route('url.redirect', ['slug' => $shortenedUrl->slug])
         ];
 
         return response()->json($response, 200);
