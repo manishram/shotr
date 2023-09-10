@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}"> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -18,6 +18,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
 </head>
 <body>
     <div id="app">

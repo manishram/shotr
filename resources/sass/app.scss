@@ -9,3 +9,61 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+#app {
+    background-color: $primary-bg-color;
+    min-height: 100vh;
+}
+
+.hero, .cta {
+    padding: $common-padding;
+    background: $primary-bg-color;
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.features {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.feature i {
+    color: $accent-color;
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.cta {
+    color: white;
+    padding: $common-padding;
+}
+
+.cta h2 {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.home-main {
+    background-color: $primary-bg-color;
+}
+
+.url-input-box {
+    border: 1px solid $accent-color !important;
+}
