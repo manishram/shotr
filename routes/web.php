@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){return view('index');});
+Route::get('/', function(){return view('index');})->name('landing.page');
 
 Route::get('/api-doc', function(){return view('api-doc');})->name('api-doc');
 
@@ -26,6 +26,6 @@ Route::get('/delete-url/{id}', [UrlController::class, 'deleteUrl'])->name('url.d
 
 Route::post('/store', [UrlController::class, 'store'])->name('store.url');
 
-Route::get('/{slug}', [UrlController::class, 'redirect'])->name('url.redirect');
-
 Auth::routes();
+
+Route::get('/{slug}', [UrlController::class, 'redirect'])->name('url.redirect');

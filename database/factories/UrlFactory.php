@@ -17,8 +17,8 @@ class UrlFactory extends Factory
     public function definition()
     {
         return [
-            'destination' => fake()->slug(5), 
-            'slug' => fake()->slug(5), 
+            'destination' => fake()->url(), 
+            'slug' => fake()->lexify('?????'), 
             'views' => fake()->randomDigit(), 
             'created_by' => fake()->randomDigit()
         ];

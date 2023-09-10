@@ -13,7 +13,7 @@ class UrlApiControllerTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
+    // use RefreshDatabase;
 
     // Test URL Shortner API
 

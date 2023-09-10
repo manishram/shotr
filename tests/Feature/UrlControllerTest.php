@@ -16,7 +16,7 @@ class UrlControllerTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
+    // use RefreshDatabase;
     
     public function testStoreUrl()
     {
@@ -50,7 +50,8 @@ class UrlControllerTest extends TestCase
     // Test deleting a URL
     public function testDeleteUrl()
     {
-        // Create a user and a URL associated with that user
+
+    // Create a user and a URL associated with that user
     $user = User::factory()->create();
     $url = Url::factory()->create(['created_by' => $user->id]);
 
@@ -63,7 +64,7 @@ class UrlControllerTest extends TestCase
     // Check for a redirect
     $response->assertStatus(302);
 
-    // Optionally, you can also check if the URL has been deleted from the database
+    // Check if the URL has been deleted from the database
     $this->assertDatabaseMissing('urls', ['id' => $url->id]);
     }
 }
