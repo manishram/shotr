@@ -67,4 +67,14 @@ class UrlControllerTest extends TestCase
     // Check if the URL has been deleted from the database
     $this->assertDatabaseMissing('urls', ['id' => $url->id]);
     }
+    public function testNonExistingSlug(){
+        // Define a non-existing slug
+        $nonExistingSlug = 'non-existing-slug';
+
+        // Make a GET request to the URL redirect route with the non-existing slug
+        $response = $this->get(route('url.redirect', ['slug' => $nonExistingSlug]));
+
+        // Assert that the response has a 404 status code
+        $response->assertStatus(404);
+    }
 }
