@@ -71,7 +71,7 @@ To shorten a URL using the API, send a POST request to the ```/v1/api/shorten-ur
 
 ### Example Request:
 
-POST /api/shorten-url
+POST /api/v1/shorten-url
 
 ```json
 {
