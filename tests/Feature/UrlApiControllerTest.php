@@ -15,8 +15,7 @@ class UrlApiControllerTest extends TestCase
      */
     // use RefreshDatabase;
 
-    // Test URL Shortner API
-
+    // Test URL Shortner API for Valid URL
     public function testUrlShortnerApiForValidUrl()
     {
         $testing_endpoint = '/api/v1/shorten-url';
@@ -38,6 +37,7 @@ class UrlApiControllerTest extends TestCase
         ]);
     }
 
+    // Test URL Shortner API for Invalid URL
     public function testUrlShortnerApiForInvalidUrl()
     {
         $testing_endpoint = '/api/v1/shorten-url';
@@ -54,6 +54,7 @@ class UrlApiControllerTest extends TestCase
         );
         }
 
+    // Test URL Shortner API for Empty URL
     public function testUrlShortnerApiForEmptyUrl()
     {
         $testing_endpoint = '/api/v1/shorten-url';

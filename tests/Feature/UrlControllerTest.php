@@ -40,11 +40,13 @@ class UrlControllerTest extends TestCase
     // Test redirecting to a valid URL
     public function testRedirectUrl()
     {
-        $url = Url::factory()->create(); // Create a URL in the database
+        // Create a URL in the database
+        $url = Url::factory()->create(); 
 
         $response = $this->get(route('url.redirect', ['slug' => $url->slug]));
 
-        $response->assertStatus(302); // Check for a redirect
+        // Check for a redirect
+        $response->assertStatus(302); 
     }
 
     // Test deleting a URL

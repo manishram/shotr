@@ -29,7 +29,7 @@ class UserTest extends TestCase
         // Assert that the User instance has the expected attributes
         $this->assertEquals('John Doe', $user->name);
         $this->assertEquals('john@example.com', $user->email);
-        // You may need to adjust the password assertion based on your hashing configuration
+        
     }
 
     public function testUserUrlRelationship()
