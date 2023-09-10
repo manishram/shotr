@@ -1,4 +1,7 @@
-# Shotr - URL Shotrening Service
+# Shotr - URL Shortening Service
+![image](https://github.com/manishram/shotr/assets/22790904/a3bcc91c-f612-4e86-b071-808c86a454b6)
+
+---
 
 Shotr is a URL shortening service that allows you to create shorter versions of long URLs, making them easier to share and manage.
 
@@ -64,7 +67,6 @@ The application should now be running on http://localhost:8000.
 
 
 ### Using the API
-Shorten URL
 To shorten a URL using the API, send a POST request to the ```/v1/api/shorten-url``` endpoint with a JSON payload containing the destination parameter.
 
 ### Example Request:
@@ -86,7 +88,7 @@ Example Response:
     "updated_at": "2021-09-10T23:52:11.000000Z",
     "created_at": "2021-09-10T23:52:11.000000Z",
     "id": 1,
-    "shortened_url": "http://localhost:8000/abcde"
+    "shortened_url": "http://localhost:8000/ab5d7"
 }
 ```
 
