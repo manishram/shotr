@@ -18,11 +18,6 @@ class Url extends Model
         $this->belongsTo('App\Model\User', 'id');
     }
 
-    public function getUrlData()
-    {
-        return config('app.url') . '/' . $this->slug;
-    }
-
     public static function deleteStaleLinks()
     {
         // This will subtract thirty days from now
