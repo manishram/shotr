@@ -1,6 +1,7 @@
 # GitHub Action for Laravel with MySQL and Redis
+
 name: Testing Laravel with MySQL
-on: [pull_request]
+on: [push, pull_request]
 jobs:
   laravel:
     name: Laravel (PHP ${{ matrix.php-versions }})
@@ -70,6 +71,8 @@ jobs:
 
       - name: Install NPM Packages
         run: npm install
+      - name: Build npm
+        run:  npm run build
 
       - name: Prepare the application
         run: |
@@ -84,9 +87,6 @@ jobs:
         env:
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
-
-      - name: Start server
-        run: php artisan serve
         
       - name: Test with phpunit
         run: vendor/bin/phpunit --coverage-text
