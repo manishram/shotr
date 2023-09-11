@@ -18,7 +18,7 @@ class UrlFactory extends Factory
     {
         return [
             'destination' => fake()->url(), 
-            'slug' => fake()->lexify('?????'), 
+            'slug' => fake()->unique()->lexify('?????'), 
             'views' => fake()->randomDigit(), 
             'created_by' => fake()->randomDigit()
         ];
