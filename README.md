@@ -67,7 +67,7 @@ The application should now be running on http://localhost:8000.
 
 
 ### Using the API
-To shorten a URL using the API, send a POST request to the ```/v1/api/shorten-url``` endpoint with a JSON payload containing the destination parameter.
+To shorten a URL using the API, send a POST request to the ```/api/v1/shorten-url``` endpoint with a JSON payload containing the destination parameter.
 
 ### Example Request:
 
