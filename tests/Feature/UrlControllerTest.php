@@ -97,10 +97,6 @@ class UrlControllerTest extends TestCase
             'destination' => 'https://example.com',
         ]);
 
-        // Get the slug of the first record
-        $slug1 = Url::first()->slug;
-
-
         // Create another record in the database with an auto-generated slug
         $this->post('/store', [
             'destination' => 'https://example.com',
@@ -112,10 +108,15 @@ class UrlControllerTest extends TestCase
             'created_by' => $user->id,
         ])->count()));
 
-        // Get the slug of the second record
-        $slug2 = Url::latest()->first()->slug;
+        // Get the slug of the first record
+        $slug1 = Url::where(['destination' => 'https://example.com',
+        'created_by' => $user->id])->orderBy('created_at', 'desc')->skip(1)->first()->slug;
 
-        // Assert that both records have unique IDs
+        // Get the slug of the second record
+        $slug2 = Url::where(['destination' => 'https://example.com',
+        'created_by' => $user->id])->orderBy('created_at', 'desc')->first()->slug;
+
+        // Assert that both records have unique slugs
         $this->assertNotEquals($slug1, $slug2);
             
     }
