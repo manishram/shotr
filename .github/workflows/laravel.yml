@@ -1,4 +1,4 @@
-# GitHub Action for Laravel with MySQL and Redis
+# GitHub Action for Laravel with MySQL
 name: Testing Laravel with MySQL
 on: [push, pull_request]
 jobs:
@@ -8,11 +8,8 @@ jobs:
     env:
       DB_DATABASE: laravel
       DB_USERNAME: root
-      DB_PASSWORD: password
+      DB_PASSWORD: ''
       BROADCAST_DRIVER: log
-      CACHE_DRIVER: redis
-      QUEUE_CONNECTION: redis
-      SESSION_DRIVER: redis
 
     # Docs: https://docs.github.com/en/actions/using-containerized-services
     services:
@@ -20,8 +17,8 @@ jobs:
         image: mysql:latest
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ""
-          MYSQL_DATABASE: Shotr
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_DATABASE: laravel
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -29,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.4', '8.0', '8.1']
+        php-versions: ['8.0']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
