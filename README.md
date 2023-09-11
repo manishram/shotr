@@ -1,3 +1,5 @@
+![workflow](https://github.com/manishram/shotr/actions/workflows/laravel.yml/badge.svg)
+
 # Shotr - URL Shortening Service
 ![image](https://github.com/manishram/shotr/assets/22790904/a3bcc91c-f612-4e86-b071-808c86a454b6)
 
