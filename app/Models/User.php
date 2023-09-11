@@ -42,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function url(){
+        // User can have many urls created by them
         return $this->hasMany('App\Model\Url', 'created_by');
     }
     

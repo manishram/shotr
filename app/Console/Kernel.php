@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // This schedular runs everyday todelete state links
         $schedule->call([Url::class, 'deleteStaleLinks'])->daily();
     }
 

@@ -35,17 +35,20 @@ class UrlController extends Controller
     
         // Check if the URL exists
         if (!$url) {
-            return abort(404); // Handle the case where the slug doesn't exist
+            return abort(404);
         }
     
         // Increment the view count
         $url->increment('views');
     
-        // Redirect to the original URL
+        // Redirect to the destination URL
         return Redirect::to($url->destination);
     }
+
     public function deleteUrl($id){
         $user = Auth::user()->id;
+
+        // Delete the url of the user
         Url::where(['id'=>$id, 'created_by'=> $user])->delete();
 
         return redirect()->back()->with('success', 'URL deleted successfully');

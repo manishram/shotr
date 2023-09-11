@@ -24,9 +24,12 @@ class HomeController extends Controller
      */
     public function getUrls()
     {
+        // Pull 5 latest urls from the databse
         $latestUrls = Url::latest()->take(5)->get();
         
         $userId = Auth::user()->id;
+        
+        // Pulls all the urls created by users
         $myUrls = Url::where('created_by', $userId)->get();
 
         return view('home', ["latestUrls" => $latestUrls, "myUrls" => $myUrls]);
