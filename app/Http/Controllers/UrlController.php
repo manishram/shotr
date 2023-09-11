@@ -15,7 +15,11 @@ class UrlController extends Controller
         $request->validate([
             'destination' => 'required|url',
         ]);
-    
+        
+        do {
+            $slug = Str::random(5);
+        } while (Url::where('slug', $slug)->exists());
+
         $url = new Url();
         $url->destination = $request->destination;
         $url->slug = Str::random(5);
