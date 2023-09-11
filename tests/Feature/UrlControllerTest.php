@@ -17,7 +17,8 @@ class UrlControllerTest extends TestCase
      * @return void
      */
     // use RefreshDatabase;
-    
+    use RefreshDatabase;
+
     public function testStoreUrl()
     {
         $user = User::factory()->create();
@@ -69,6 +70,8 @@ class UrlControllerTest extends TestCase
     // Check if the URL has been deleted from the database
     $this->assertDatabaseMissing('urls', ['id' => $url->id]);
     }
+
+
     public function testNonExistingSlug(){
         // Define a non-existing slug
         $nonExistingSlug = 'non-existing-slug';
@@ -78,5 +81,43 @@ class UrlControllerTest extends TestCase
 
         // Assert that the response has a 404 status code
         $response->assertStatus(404);
+    }
+    
+    public function testNonDuplicateSlug(){
+        
+        
+        do {
+            $user = User::factory()->create();
+        } while (Url::where('created_by', $user->id)->exists());
+
+        $this->actingAs($user);
+
+        // Create a record in the database with an auto-generated slug
+        $this->post('/store', [
+            'destination' => 'https://example.com',
+        ]);
+
+        // Create another record in the database with an auto-generated slug
+        $this->post('/store', [
+            'destination' => 'https://example.com',
+        ]);
+        
+        // Assert that records be added successfully
+        $this->assertEquals(2, (Url::where([
+            'destination' => 'https://example.com',
+            'created_by' => $user->id,
+        ])->count()));
+
+        // Get the slug of the first record
+        $slug1 = Url::where(['destination' => 'https://example.com',
+        'created_by' => $user->id])->orderBy('created_at', 'desc')->skip(1)->first()->slug;
+
+        // Get the slug of the second record
+        $slug2 = Url::where(['destination' => 'https://example.com',
+        'created_by' => $user->id])->orderBy('created_at', 'desc')->first()->slug;
+
+        // Assert that both records have unique slugs
+        $this->assertNotEquals($slug1, $slug2);
+            
     }
 }
