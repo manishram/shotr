@@ -22,7 +22,7 @@ class UrlController extends Controller
 
         $url = new Url();
         $url->destination = $request->destination;
-        $url->slug = Str::random(5);
+        $url->slug = $slug;
         $url->created_by = Auth::user()->id;
         $url->save();
     
