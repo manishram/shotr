@@ -46,6 +46,13 @@ Install JavaScript dependencies:
 ```
 npm install
 ```
+
+Build Vite:
+
+```
+npm run build
+```
+
 Configure your database settings in .env file.
 
 Generate the application key:
