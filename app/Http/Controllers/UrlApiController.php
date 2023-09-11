@@ -23,7 +23,7 @@ class UrlApiController extends Controller
         ]);
         $shortenedUrl->save();
 
-        // Build the response JSON
+        // Build the response JSON for shortened url
         $response = [
             'destination' => $shortenedUrl->destination,
             'slug' => $shortenedUrl->slug,
