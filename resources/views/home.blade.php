@@ -15,6 +15,13 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </form>
+
+            @if (session('success'))
+            <div class="alert alert-primary" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+
         </div>
     </div>
 
