@@ -1,13 +1,12 @@
 <div class="row justify-content-center mt-4">
-    <div class="col-md-8">
+    <div class="col-sm-12 col-lg-8">
         <div class="card">
-            <div class="card-header bg-success text-white">
-                <h4 class="mb-0">Latest URLs</h4>
+            <div class="card-header text-success">
+                <h4 class="mb-0 fs-5">Latest URLs</h4>
             </div>
-            <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead>
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead class="table-dark">
                             <tr>
                                 <th>Destination URL</th>
                                 <th>Shortened URL</th>
@@ -36,4 +35,3 @@
             </div>
         </div>
     </div>
-</div>
