@@ -32,6 +32,6 @@ class HomeController extends Controller
         // Pulls all the urls created by users
         $myUrls = Url::where('created_by', $userId)->get();
 
-        return view('home', ["latestUrls" => $latestUrls, "myUrls" => $myUrls]);
+        return view('dashboard.home', ["latestUrls" => $latestUrls, "myUrls" => $myUrls]);
     }
 }

@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){return view('index');})->name('landing.page');
+Route::get('/', function(){return view('pages.landingpage');})->name('landing.page');
 
-Route::get('/api-doc', function(){return view('api-doc');})->name('api-doc');
+Route::get('/api-doc', function(){return view('pages.api-doc');})->name('api-doc');
 
 Route::get('/home', [HomeController::class, 'getUrls'])->name('home');
 
